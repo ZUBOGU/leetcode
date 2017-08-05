@@ -16,6 +16,8 @@ Could you do it in O(n) time and O(1) space?
 
 /*
 Solution 1: 
+Find middle and reverse send half. 
+Then, we can comapre the head and reversed send half to see if it is a Palindrome.
 */
 public class Solution {
     /**
