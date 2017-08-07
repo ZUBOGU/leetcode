@@ -18,16 +18,48 @@ Return: 1 --> 2 --> 3 --> 4 --> 5
 
 /*
 Solution 1: 
-Find middle and reverse send half. 
-Then, we can comapre the head and reversed send half to see if it is a Palindrome.
+Iterate
 */
-
-
+public class Solution {
+    public ListNode removeElements(ListNode head, int val) {
+        while (head != null && head.val == val) {
+            head = head.next;
+        }
+        ListNode curr = head;
+        while (curr != null && curr.next != null) {
+            if (curr.next.val == val) {
+                curr.next = curr.next.next;
+            } else {
+                curr = curr.next;
+            }
+        }
+        return head;
+        
+    }
+}
 
 /*
 Complexity Analysis
 Time complexity : O(n).
 
 Space complexity: O(1). 
+*/
+
+/*
+Solution 2: 
+recursive 
+*/
+public ListNode removeElements(ListNode head, int val) {
+        if (head == null) return null;
+        head.next = removeElements(head.next, val);
+        return head.val == val ? head.next : head;
+}
+
+
+/*
+Complexity Analysis
+Time complexity : O(n).
+
+Space complexity: O(n). 
 */
 
