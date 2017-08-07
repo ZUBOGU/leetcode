@@ -94,3 +94,63 @@ Time complexity : O(m+n).
 Space complexity : O(1).
 */
 
+
+/*
+Solution 3: 
+temporary combine two linked list.
+Using listCycleII method to check if link list have cycle
+if yes, then has intersection. find the intersection
+Otherwise not.
+Remove the temporary link for two linked list
+*/
+public class Solution {
+    /**
+     * @param headA: the first list
+     * @param headB: the second list
+     * @return: a ListNode 
+     */
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        if (headA == null || headB == null) {
+            return null;
+        }
+        
+        // get the tail of list A.
+        ListNode node = headA;
+        while (node.next != null) {
+            node = node.next;
+        }
+        node.next = headB;
+        ListNode result = listCycleII(headA);
+        node.next = null;
+        return result;
+    }
+    
+    private ListNode listCycleII(ListNode head) {
+        ListNode slow = head, fast = head.next;
+        
+        while (slow != fast) {
+            if (fast == null || fast.next == null) {
+                return null;
+            }
+            
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        
+        slow = head;
+        fast = fast.next;
+        while (slow != fast) {
+            slow = slow.next;
+            fast = fast.next;
+        }
+        
+        return slow;
+    }
+}
+
+/*
+Complexity Analysis.
+Time complexity : O(m+n). listCycleII O(m+n) and main method is O(m). m is list a length.
+Space complexity : O(1).
+*/
+
