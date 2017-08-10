@@ -22,8 +22,8 @@ Using dummy head and carry on int. loop from left to right for both linked list
 
 Complexity Analysis:
 
-Time complexity : O(mn).
-Space complexity : O(1).
+Time complexity : O(max(m,n)).
+Space complexity : O(max(m,n)).
 */
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
@@ -66,5 +66,38 @@ public class Solution {
 
         return head.next;
         
+    }
+}
+
+// version: 高频题班
+public class Solution {
+    /**
+     * @param l1: the first list
+     * @param l2: the second list
+     * @return: the sum list of l1 and l2
+     */
+    public ListNode addLists(ListNode l1, ListNode l2) {
+        // write your code here
+        ListNode dummy = new ListNode(0);
+        ListNode tail = dummy;
+
+        int carry = 0;
+        for (ListNode i = l1, j = l2; i != null || j != null; ) {
+            int sum = carry;
+            sum += (i != null) ? i.val : 0;
+            sum += (j != null) ? j.val : 0;
+
+            tail.next = new ListNode(sum % 10);
+            tail = tail.next;
+
+            carry = sum / 10;
+            i = (i == null) ? i : i.next;
+            j = (j == null) ? j : j.next;
+        }
+
+        if (carry != 0) {
+            tail.next = new ListNode(carry);
+        }
+        return dummy.next;
     }
 }
