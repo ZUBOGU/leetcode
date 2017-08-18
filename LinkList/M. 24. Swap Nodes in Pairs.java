@@ -27,16 +27,18 @@ Space complexity : O(1).
 */
 
 public class Solution {
-    public ListNode oddEvenList(ListNode head) {
-        if (head == null) return head;
-        ListNode odd = head, even = head.next, evenhead = even;
-        while (even != null && even.next != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
+    public ListNode swapPairs(ListNode head) {
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        ListNode curr = dummyHead, nex = dummyHead.next;
+        while (nex != null && nex.next != null) {
+            curr.next = nex.next;
+            curr = curr.next;
+            nex.next = curr.next;
+            curr.next = nex;
+            curr = curr.next;
+            nex = nex.next;
         }
-        odd.next = evenhead;
-        return head;
+        return dummyHead.next;
     }
 }
