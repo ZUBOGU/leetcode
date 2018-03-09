@@ -1,2 +1,2 @@
-# leetcode
-Learning leet code
+# LeetCode
+Practive leetcode problems
