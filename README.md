@@ -1,2 +1,2 @@
 # LeetCode
-Practive leetcode problems
+Practice leetcode problems
