@@ -26,6 +26,34 @@ Output: "1211"
 
 class Solution {
     public String countAndSay(int n) {
-        
+        if (n == 1) return "1";
+        String prev = countAndSay(n-1);
+        return say(prev);
     }
+    
+    public String say(String s) {
+        int cur = 0;
+        int prev = 0;
+        int count = 0;
+        String ret = "";
+        for (int i = 0; i < s.length(); i ++) {
+        	cur = s.charAt(i) - '0';
+        	if (prev == 0 ) {
+                prev = cur;
+        		count += 1;
+        	} else if (cur == prev) {
+                count += 1;
+            } else {
+            	ret += count;
+        		ret += prev;
+    			prev = cur;
+    			count = 1;
+        	}
+        }
+        //say last part
+        ret += count;
+        ret += cur;
+        return ret;
+    }
+}
 }
