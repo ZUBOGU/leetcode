@@ -34,10 +34,7 @@ return its zigzag level order traversal as:
 // Modify from Binary Tree Level Order Traversal problem
 class Solution {
 	public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
-        return zigzagLevelOrder(root, 0)
-    }	
-
-    public List<List<Integer>> zigzagLevelOrder(TreeNode root, int level) {
+		boolean evenLevel = true;
     	List<List<Integer>> ret = new LinkedList<List<Integer>>();
         if (root == null) return ret;
     	Queue<TreeNode> q = new LinkedList<>();
@@ -48,11 +45,15 @@ class Solution {
         	for(int i=0; i < size; i++) {
         		if(q.peek().left != null) q.offer(q.peek().left);
         		if(q.peek().right != null) q.offer(q.peek().right);
-        		cur.add(q.poll().val);
+        		if (evenLevel) {
+        			cur.add(q.poll().val);
+        		} else {
+        			cur.add(0, q.poll().val);
+        		}
         	}
+        	evenLevel = !evenLevel;
         	ret.add(cur);
         }
-        return ret;
-        
+        return ret;      
     }
 }
