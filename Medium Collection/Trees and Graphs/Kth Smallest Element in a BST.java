@@ -19,8 +19,27 @@ What if the BST is modified (insert/delete operations) often and you need to fin
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+// Could do recursive and have a global variable count
+// Iterative, use stack
 class Solution {
     public int kthSmallest(TreeNode root, int k) {
-        
+        Stack<TreeNode> s = new Stack<TreeNode>();
+        while (root != null) {
+        	s.push(root);
+        	root = root.left;
+        }
+        int count = 0
+        while (count < k) {
+        	TreeNode curr = s.pop();
+        	count++;
+        	if (count == k) return curr.val;
+        	TreeNode next = curr.right;
+        	while (next != null) {
+        		s.push(next);
+        		next = next.left;
+        	}
+        }
+        return -1 // if k invalid
     }
 }
