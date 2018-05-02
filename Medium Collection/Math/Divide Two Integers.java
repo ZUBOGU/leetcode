@@ -26,12 +26,24 @@ Note:
 
 class Solution {
     public int divide(int dividend, int divisor) {
-        int sign = (dividend < 0) ^ (divisor < 0);
-        dividend = Math.abs(dividend);
-        divisor = Math.abs(divisor);
-        res = 0;
-        while (dividend > divisor) {
-        	//TODO
+        if(dividend<<1 == 0 && divisor == -1) return Integer.MAX_VALUE;
+        boolean sign = (dividend > 0) ^ (divisor > 0);
+        long d1 = Math.abs((long) dividend);
+        long d2 = Math.abs((long) divisor);
+        return divideLong(d1, d2, sign);
+    }
+    public int divideLong(long dividend, long divisor, boolean sign) {       
+        long res = 0;
+        while (dividend >= divisor) {
+            long multiple = 1;
+            long temp_divisor = divisor;
+            while (dividend >= (temp_divisor << 1)) {
+                temp_divisor <<= 1;
+                multiple <<= 1;
+            }
+            dividend -= temp_divisor;
+            res += multiple;
         }
+        return sign ? (int) -res : (int) res; 
     }
 }
