@@ -31,23 +31,30 @@ Note:
 */
 
 class MyHashSet {
+    int[][] hs;
 
     /** Initialize your data structure here. */
     public MyHashSet() {
-        
+        hs = new int[1000][1000];
     }
     
     public void add(int key) {
-        
+        int quotient = key / 1000;
+        int remainder = key % 1000;
+        hs[quotient][remainder] = 1;
     }
     
     public void remove(int key) {
-        
+        int quotient = key / 1000;
+        int remainder = key % 1000;
+        hs[quotient][remainder] = 0;
     }
     
     /** Returns true if this set did not already contain the specified element */
     public boolean contains(int key) {
-        
+        int quotient = key / 1000;
+        int remainder = key % 1000;
+        return hs[quotient][remainder] > 0;
     }
 }
 

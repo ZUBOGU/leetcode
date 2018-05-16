@@ -103,4 +103,5 @@ In the example, we use y = x % 5 as our hash function. Let's go through the inse
  
  Besides, there are operations which are based on these two operations. For example, when we remove an element, we will first search the element and then remove the element from the corresponding position if the element exists.
  
- [Design HashSet](Design%20HashSet.java)
+ [Design HashSet](Design%20HashSet.java).
+ [Design HashMap](Design%20HashMap.java).
