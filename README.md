@@ -41,7 +41,7 @@ Practice leetcode problems
 
 * [Sorting and Searching](Medium%20Collection/Sorting%20and%20Searching)
 
-* [Trees and Graphs](Medium%20Collection/Array)
+* [Trees and Graphs](Medium%20Collection/Trees%20and%20Graphs)
 
 ### [Hash Table](Hash%20Table)
 
