@@ -30,25 +30,33 @@ Note:
 */
 
 class MyHashMap {
+    Integer[][] hs;
 
     /** Initialize your data structure here. */
     public MyHashMap() {
-        
+        hs = new Integer[1000][1000];
     }
     
     /** value will always be positive. */
     public void put(int key, int value) {
-        
+        int quotient = key / 1000;
+        int remainder = key % 1000;
+        hs[quotient][remainder] = new Integer(value);
     }
     
     /** Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key */
     public int get(int key) {
-        
+        int quotient = key / 1000;
+        int remainder = key % 1000;
+        Integer value = hs[quotient][remainder];
+        return value == null ? -1 : value.intValue();
     }
     
     /** Removes the mapping of the specified value key if this map contains a mapping for the key */
     public void remove(int key) {
-        
+        int quotient = key / 1000;
+        int remainder = key % 1000;
+        hs[quotient][remainder] = null;
     }
 }
 
