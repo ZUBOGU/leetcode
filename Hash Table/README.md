@@ -94,8 +94,8 @@ Insertion and search are two basic operations in a hash table.
 
 Besides, there are operations which are based on these two operations. For example, when we remove an element, we will first search the element and then remove the element from the corresponding position if the element exists.
 
-### [Design HashSet](Design%20HashSet.java).
-### [Design HashMap](Design%20HashMap.java).
+### [Design HashSet](Design%20HashSet.java)
+### [Design HashMap](Design%20HashMap.java)
 
 ### Complexity Analysis - Hash Table
 
@@ -282,4 +282,6 @@ boolean findDuplicates(List<Type>& keys) {
 
 ### [Single Number](../Easy%20Collection/Array/Single%20Number.java)
 
-### [Happy Number](Medium%20Collection/Math/Happy%20Number.java
+### [Intersection of Two Arrays](Intersection%20of%20Two%20Arrays.java)
+
+### [Happy Number](Medium%20Collection/Math/Happy%20Number.java)
