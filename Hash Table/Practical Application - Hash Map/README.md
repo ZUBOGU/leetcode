@@ -179,6 +179,10 @@ ReturnType aggregateByKey_hashmap(List<Type>& keys) {
 
 ## [Two Sum](../Easy%20Collection/Array/Two%20Sum.java)
 
+## [Isomorphic Strings](Isomorphic%20Strings.java)
+
+## [Minimum Index Sum of Two Lists](Minimum%20Index%20Sum%20of%20Two%20Lists.java)
+
 ## Scenario II - Aggregate by Key
 
 Another frequent scenario is to aggregate all the information by key. We can also use a hash map to achieve this goal.
