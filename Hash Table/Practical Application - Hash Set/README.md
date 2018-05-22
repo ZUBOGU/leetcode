@@ -161,4 +161,4 @@ boolean findDuplicates(List<Type>& keys) {
 
 ## [Intersection of Two Arrays](Intersection%20of%20Two%20Arrays.java)
 
-## [Happy Number](Medium%20Collection/Math/Happy%20Number.java)
+## [Happy Number](../../Medium%20Collection/Math/Happy%20Number.java)

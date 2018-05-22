@@ -245,6 +245,8 @@ ReturnType aggregateByKey_hashmap(List<Type>& keys) {
 }
 ```
 
-## [First Unique Character in a String](../Easy%20Collection/Strings/First%20Unique%20Character%20in%20a%20String.java)
+## [First Unique Character in a String](../../Easy%20Collection/Strings/First%20Unique%20Character%20in%20a%20String.java)
 
-## [Intersection of Two Arrays II](../Easy%20Collection/Array/Intersection%20of%20Two%20Arrays%20II.java)
+## [Intersection of Two Arrays II](../../Easy%20Collection/Array/Intersection%20of%20Two%20Arrays%20II.java)
+
+## [Contains Duplicate II](Contains%20Duplicate%20II.java)
