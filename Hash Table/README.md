@@ -26,3 +26,5 @@ And we also provide exercises for you to be familiar with hash table.
 ## [Practical Application - Hash Set](Practical%20Application%20-%20Hash%20Set)
 
 ## [Practical Application - Hash Map](Practical%20Application%20-%20Hash%20Map)
+
+## [Practical Application - Design the Key](Practical%20Application%20-%20Design%20the%20Key)

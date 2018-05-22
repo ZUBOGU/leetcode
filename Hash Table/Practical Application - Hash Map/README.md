@@ -177,7 +177,7 @@ ReturnType aggregateByKey_hashmap(List<Type>& keys) {
 }
 ```
 
-## [Two Sum](../Easy%20Collection/Array/Two%20Sum.java)
+## [Two Sum](../../Easy%20Collection/Array/Two%20Sum.java)
 
 ## [Isomorphic Strings](Isomorphic%20Strings.java)
 

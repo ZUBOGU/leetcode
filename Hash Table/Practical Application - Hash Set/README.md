@@ -155,9 +155,9 @@ boolean findDuplicates(List<Type>& keys) {
 
 ```
 
-## [Contains Duplicate](../Easy%20Collection/Array/Contains%20Duplicate.java)
+## [Contains Duplicate](../../Easy%20Collection/Array/Contains%20Duplicate.java)
 
-## [Single Number](../Easy%20Collection/Array/Single%20Number.java)
+## [Single Number](../../Easy%20Collection/Array/Single%20Number.java)
 
 ## [Intersection of Two Arrays](Intersection%20of%20Two%20Arrays.java)
 
