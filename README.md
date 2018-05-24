@@ -43,6 +43,10 @@ Practice leetcode problems
 
 * [Trees and Graphs](Medium%20Collection/Trees%20and%20Graphs)
 
+### [Hard Collection](Hard%20Collection)
+
+* [Array and Strings](Hard%20Collection/Array%20and%20Strings)
+
 ### [Hash Table](Hash%20Table)
 
 ## Tags
