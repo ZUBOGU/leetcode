@@ -27,7 +27,45 @@ Note:
  */
 
 class Solution {
-    public int calculate(String s) {
-        
+    public static int calculate(String s) {
+        if (s == null || s == "") return 0;
+        s = s.replaceAll(" ","");
+        Stack<Integer> stack = new Stack<Integer>();
+        int len = s.length();
+        int num = 0;
+        char sign = '+';
+        for (int i = 0; i < len; i++) {
+            if (Character.isDigit(s.charAt(i))) {
+                num = s.charAt(i) - '0';
+                while (i + 1 < len && Character.isDigit(s.charAt(i + 1))) {
+                    num = num * 10 + s.charAt(i + 1) - '0';
+                    i++;
+                }
+            }
+            // Update sign and push prev num, also handle the last dight num case
+            if (!Character.isDigit(s.charAt(i)) || i == (len - 1)) {
+
+                if(sign=='-'){
+                    stack.push(-num);
+                }
+                if(sign=='+'){
+                    stack.push(num);
+                }
+                if(sign=='*'){
+                    stack.push(stack.pop()*num);
+                }
+                if(sign=='/'){
+                    stack.push(stack.pop()/num);
+                }
+                sign = s.charAt(i);
+                num = 0;
+            }
+        }
+        // Add all integer in the stack
+        int re = 0;
+        for(int i:stack){
+            re += i;
+        }
+        return re;
     }
 }
