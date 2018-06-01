@@ -47,6 +47,8 @@ Practice leetcode problems
 
 * [Array and Strings](Hard%20Collection/Array%20and%20Strings)
 
+* [Linked List](Hard%20Collection/Linked%20List)
+
 ### [Hash Table](Hash%20Table)
 
 ## Tags
