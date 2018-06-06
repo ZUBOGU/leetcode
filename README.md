@@ -49,8 +49,10 @@ Practice leetcode problems
 
 * [Linked List](Hard%20Collection/Linked%20List)
 
+* [Trees and Graphs](Hard%20Collection/Trees%20and%20Graphs)
+
 ### [Hash Table](Hash%20Table)
 
 ## Tags
 
-### [LinkList](LinkList)
+### [Linked List](Linked%20List)
