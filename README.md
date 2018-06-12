@@ -51,6 +51,8 @@ Practice leetcode problems
 
 * [Trees and Graphs](Hard%20Collection/Trees%20and%20Graphs)
 
+* [Backtracking](Hard%20Collection/Backtracking)
+
 ### [Hash Table](Hash%20Table)
 
 ## Tags
