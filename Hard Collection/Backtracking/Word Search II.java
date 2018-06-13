@@ -1,6 +1,8 @@
 import java.awt.List;
 import java.util.ArrayList;
 
+import com.sun.xml.internal.fastinfoset.algorithm.BuiltInEncodingAlgorithm.WordListener;
+
 /* Word Search II
 
 Given a 2D board and a list of words from the dictionary, find all words in the board.
@@ -24,6 +26,102 @@ Output: ["eat","oath"]
 
 Note:
 You may assume that all inputs are consist of lowercase letters a-z. */
+
+// Backtracking and Trie
+/* The following picture explains construction of trie using keys given in the example below,
+
+                       root
+                    /   \    \
+                    t   a     b
+                    |   |     |
+                    h   n     y
+                    |   |  \  |
+                    e   s  y  e
+                 /  |   |
+                 i  r   w
+                 |  |   |
+                 r  e   e
+                        |
+                        r */
+
+class Solution {
+    class TrieNode {
+        TrieNode[] links;
+        boolean isEnd;
+        String word;
+        public TrieNode() {
+            links = new TrieNode[26];
+            isEnd = false;
+            word = null;
+        }
+    }
+
+    class Trie {
+        private TrieNode root;
+        
+        public Trie() {
+            root = new TrieNode();
+        }
+        
+        public void insert(String word) {
+            if (word == null || word.length() == 0) {
+                return;
+            }
+            TrieNode node = root;
+            for (char ch : word.toCharArray()) {
+                if (node.links[ch - 'a'] == null) {
+                    node.links[ch - 'a'] = new TrieNode();
+                }
+                node = node.links[ch - 'a'];
+            }
+            node.isEnd = true;
+            node.word = word;
+        }
+
+    }
+
+    public List<String> findWords(char[][] board, String[] words) {
+        List<String> res = new LinkedList<String>();
+        // Fast failure
+        if (words == null || words.length == 0 || board == null || board.length == 0) return res;
+
+        // Build the Trie tree
+        Trie t = new Trie();
+        for (int i = 0; i < words.length; i++) {
+            t.insert(words[i]);
+        }
+        
+        // So just one loop all char on board instal words.length as the brute force one. Speed up
+        for (int y = 0; y < board.length; y++) {
+            for (int x = 0; x < board[0].length; x++) {
+                dfs(board, y, x, res, t.root);
+            }
+        }
+        return res;
+    }
+
+    // dfs search
+    private void dfs(char[][] board, int y, int x, List<String> res, TrieNode p) {
+        // Out of bound, just return.
+        if (y<0 || x<0 || y == board.length || x == board[y].length) return;
+        // Base case
+        char c = board[y][x];
+        // visited before or not matching
+        if ( c == '*' || p.links[c - 'a'] == null) return;
+        p = p.links[c - 'a'];
+        if (p.word != null && p.isEnd) {
+            res.add(p.word);
+            p.word = null; //avoid duplicate checking trie.
+        }
+        // avoid use twice when search world.
+        board[y][x] = '*';
+        dfs(board, y, x+1, res, p);
+        dfs(board, y, x-1, res, p);
+        dfs(board, y+1, x, res, p);
+        dfs(board, y-1, x, res, p);
+        board[y][x] = c;
+    }
+}
 
 // Brute force. Very slow.
 class Solution {
