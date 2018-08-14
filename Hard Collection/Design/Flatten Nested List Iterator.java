@@ -38,34 +38,31 @@ Explanation: By calling next repeatedly until hasNext returns false,
  */
 public class NestedIterator implements Iterator<Integer> {
 
-    Iterator<Integer> iterator;
+    private LinkedList<Integer> stack;
 
     public NestedIterator(List<NestedInteger> nestedList) {
-        List<Integer> ls = getListInteger(nestedList);
-        this.iterator = ls.iterator();
+        this.stack = new LinkedList<Integer>();
+        getListInteger(nestedList);
     }
 
-    public List<Integer> getListInteger(List<NestedInteger> nestedList) {
-        List<Integer> res = new ArrayList<>();
+    public void getListInteger(List<NestedInteger> nestedList) {
         for (NestedInteger l : nestedList) {
             if (l.isInteger()) {
-                res.add(l.getInteger());
+                this.stack.offer(l.getInteger());
             } else {
-                List<Integer> cur = getListInteger(l.getList());
-                res.addAll(cur);
+                getListInteger(l.getList());
             }
         }
-        return res;
     }
 
     @Override
     public Integer next() {
-        return iterator.next();
+        return stack.poll();
     }
 
     @Override
     public boolean hasNext() {
-        return iterator.hasNext();
+        return stack.peek() != null;
     }
 }
 
