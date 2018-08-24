@@ -1,3 +1,5 @@
+import java.util.PriorityQueue;
+
 /* Find Median from Data Stream
 
 Median is the middle value in an ordered integer list. If the size of the list is even, there is no middle value. 
@@ -24,17 +26,33 @@ findMedian() -> 2
 
 class MedianFinder {
 
+    PriorityQueue<Double> lo;
+    PriorityQueue<Double> hi;
+    boolean even = true;
+
     /** initialize your data structure here. */
     public MedianFinder() {
-        
+        lo = new PriorityQueue<Double>(Collections.reverseOrder());
+        hi = new PriorityQueue<Double>();
     }
     
     public void addNum(int num) {
-        
+        if (even) {
+            hi.offer(num+0.0);
+            lo.offer(hi.poll());
+        } else {
+            lo.offer(num+0.0);
+            hi.offer(lo.poll());
+        }
+        even = !even;
     }
     
     public double findMedian() {
-        
+        if (even) {
+            return (lo.peek() + hi.peek()) / 2.0;
+        } else {
+            return lo.peek();
+        }
     }
 }
 
